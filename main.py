@@ -1,15 +1,14 @@
 """Laboratorio 8 - CLI del gestor de tareas."""
-
-TODO:Implementar CLI según README.md
+# TODO: Implementar CLI según README.md
 import sys
 from todo_manager import read_todo_file, write_todo_file
-
+ 
 def main():
  
     if len(sys.argv) < 2:
         print("Insufficient arguments provided!")
         return
-     
+ 
  
     if sys.argv[1] == "--help":
         print("""Usage: python main.py <file_path> <command> [arguments]...
@@ -23,9 +22,10 @@ Examples:
   python main.py tasks.txt view
   python main.py tasks.txt add "Call mom" remove "Take out trash" view""")
         return
-        file_path = sys.argv[1]
+ 
+    file_path = sys.argv[1]
    
-try:
+    try:
        
         tasks = read_todo_file(file_path)
        
@@ -47,7 +47,7 @@ try:
                 tasks.append(new_task)
                 print(f'Task "{new_task}" added.')
                 i += 2
-                   
+               
             elif command == "remove":
                 if i + 1 >= len(sys.argv):
                     raise IndexError('Task description required for "remove".')
@@ -71,3 +71,4 @@ try:
         print(f"An unexpected error occurred: {e}")
  
 if __name__ == "__main__":
+    main()
