@@ -17,3 +17,5 @@ def main():
         if num_supports == 0:
             print("Error: Cannot divide by zero! Supports must be greater than zero.")
             return
+            load_per_support = total_load / num_supports
+        print(f"Load per support point: {load_per_support:.2f} N")
