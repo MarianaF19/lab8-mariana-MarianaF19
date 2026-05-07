@@ -47,3 +47,27 @@ try:
                 tasks.append(new_task)
                 print(f'Task "{new_task}" added.')
                 i += 2
+                   
+            elif command == "remove":
+                if i + 1 >= len(sys.argv):
+                    raise IndexError('Task description required for "remove".')
+                task_to_remove = sys.argv[i+1]
+                if task_to_remove in tasks:
+                    tasks.remove(task_to_remove)
+                    print(f'Task "{task_to_remove}" removed.')
+                else:
+                    print(f'Task "{task_to_remove}" not found.')
+                i += 2
+               
+            else:
+                raise ValueError("Command not found!")
+        write_todo_file(file_path, tasks)
+ 
+    except IndexError as e:
+        print(e)
+    except ValueError as e:
+        print(e)
+    except Exception as e:
+        print(f"An unexpected error occurred: {e}")
+ 
+if __name__ == "__main__":
