@@ -19,3 +19,6 @@ def main():
             return
             load_per_support = total_load / num_supports
         print(f"Load per support point: {load_per_support:.2f} N")
+        
+    except ValueError:
+        print("Error: Invalid input! Enter numeric values only.")
